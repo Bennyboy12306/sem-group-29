@@ -1,10 +1,7 @@
-version: "3.7"
-
 services:
-  mariadb:
-    image: mariadb
+  app:
+    build: ./
+
+  db:
+    build: db/.
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-    volumes:
-      - ./data:/var/lib/mysql

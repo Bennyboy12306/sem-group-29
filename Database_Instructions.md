@@ -1,23 +1,7 @@
-# Accessing the Database
+In order for the application and the database to interact with each-other, they must be started from one docker compose file.
+Starting separate containers will not work, even for development purposes.
 
-run the docker-compose for MariaDB
-open the terminal in IntelliJ
-run `cmd`
-run `docker exec -it sem-group-29-mariadb-1 /bin/bash`
-run `mariadb -u root -p`
-enter password `rootpassword` be aware it will look like nothing is being entered, this is fine type it in and press enter
+Another note for development is that when building locally, docker-compose seems to use old images, even if a new one has just been built.
+In order to fix this, run 'docker-compose down --rmi all' in the command line, this removes all old images.
 
-# Set up and Populate the Database
-once inside the mariadb database:
-run `CREATE DATABASE world;`
-run `exit` x2
-copy the database .sql to a temp.sql by running `docker cp <path/to/world.sql> <container_name_or_id>:/tmp/file.sql` replacing the required fields with the correct value
-run `docker exec -it sem-group-29-mariadb-1 /bin/bash`
-run `mariadb -u root -p world < /tmp.file.sql`
-now log back into the database with `mariadb -u root -p` enter the password again
-run `USE world`
-run `SHOW TABLES;` to confirm that it has worked
-if everything has worked you can now run queries
-
-TODO
-CONNECT JAVA FILE TO DATABASE SO QUERIES CAN BE RAN FROM THERE
+The application accesses the data from the 'Database' class where a connection can be accessed statically using Database#getConnection.
