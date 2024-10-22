@@ -1,7 +1,5 @@
 package com.napier.sem;
 
-import java.sql.SQLException;
-
 /**
  * This class contains main() and is the entry-point for our application.
  * The database class is called in order to create a connection for our application session.
@@ -13,16 +11,16 @@ public class App {
 
         var connection = Database.getConnection();
 
-        try {
-            var statement = connection.prepareStatement("SHOW TABLES;");
-            var result = statement.executeQuery();
+        // Query Usage, Query.run_query(connection, "<your query>", <expected columns from this query).
+        // To test run `docker-compose down --rmi all` in terminal, package the app, run the docker compose.
+        // and expand the app section of the docker compose in the services tab to see the output.
+        // It may take a few attempts to connect.
 
-            while (result.next()) {
-                System.out.println("Table name: " + result.getString(1));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        Query.run_query(connection, "SHOW TABLES;", 1); //Test Query
+
+        Query.run_query(connection, "SELECT name, population FROM country ORDER BY population DESC;", 2); // Report 1 (Issue #11)
+
+
 
     }
 
