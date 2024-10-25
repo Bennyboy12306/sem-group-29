@@ -11,12 +11,14 @@ public class Query {
 
     /**
      * This method is used to run a query and handle exceptions.
+     * TODO Change this to output each query to their own file instead of printing everything to console
      * @param connection the database connection.
      * @param query the query to run.
      * @param columns how many columns this query will return (for formatting)
      */
-    public static void runQuery(Connection connection, String query, int columns)
+    public static void runQuery(Connection connection, String query, int columns, String name)
     {
+        System.out.println(name);
         try
         {
             var statement = connection.prepareStatement(query);

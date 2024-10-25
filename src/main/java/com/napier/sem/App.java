@@ -11,15 +11,16 @@ public class App {
 
         var connection = Database.getConnection();
 
-        // Query Usage, Query.run_query(connection, "<your query>", <expected columns from this query>).
+        // Query Usage, Query.run_query(connection, "<your query>", <expected columns from this query>, <name of query>).
         // To test run `docker-compose down --rmi all` in terminal, package the app, run the docker compose.
         // and expand the app section of the docker compose in the services tab to see the output.
         // It may take a few attempts to connect.
 
-        Query.runQuery(connection, "SHOW TABLES;", 1); //Test Query
+        Query.runQuery(connection, "SHOW TABLES;", 1, "Test Query"); //Test Query
 
-        Query.runQuery(connection, "SELECT name, population FROM country ORDER BY population DESC;", 2); // Report 1 (Issue #11)
+        Query.runQuery(connection, "SELECT name, population FROM country ORDER BY population DESC;", 2, "1-Countries-ordered-by-population"); // Report 1 (Issue #11)
 
+        Query.runQuery(connection, "SELECT name, population FROM city ORDER BY population DESC;", 2, "7-Cities-ordered-by-population"); // Report 7 (Issue #17)
     }
 
 }
