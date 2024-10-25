@@ -16,9 +16,9 @@ public class App {
         // and expand the app section of the docker compose in the services tab to see the output.
         // It may take a few attempts to connect.
 
-        Query.run_query(connection, "SHOW TABLES;", 1); //Test Query
+        Query.runQuery(connection, "SHOW TABLES;", 1); //Test Query
 
-        Query.run_query(connection, "SELECT name, population FROM country ORDER BY population DESC;", 2); // Report 1 (Issue #11)
+        Query.runQuery(connection, "SELECT name, population FROM country ORDER BY population DESC;", 2); // Report 1 (Issue #11)
 
     }
 

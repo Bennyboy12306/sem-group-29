@@ -15,7 +15,7 @@ public class Query {
      * @param query the query to run.
      * @param columns how many columns this query will return (for formatting)
      */
-    public static void run_query(Connection connection, String query, int columns)
+    public static void runQuery(Connection connection, String query, int columns)
     {
         try
         {
@@ -23,7 +23,7 @@ public class Query {
             var result = statement.executeQuery();
 
             while (result.next()) {
-                System.out.println(format_result(result, columns));
+                System.out.println(formatResult(result, columns));
             }
         } catch (SQLException e)
         {
@@ -38,7 +38,7 @@ public class Query {
      * @return the formatted text for 1 row of the result.
      * @throws SQLException if the result formatting has failed.
      */
-    private static String format_result(ResultSet result, int columns) throws SQLException {
+    private static String formatResult(ResultSet result, int columns) throws SQLException {
         StringBuilder formatted_result = new StringBuilder(" | ");
         try {
             for (int i = 1; i <= columns; i++) {
