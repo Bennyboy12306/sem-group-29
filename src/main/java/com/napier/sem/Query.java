@@ -16,11 +16,16 @@ public class Query {
      * @param query the query to run.
      * @param columns how many columns this query will return (for formatting)
      */
-    public static void runQuery(Connection connection, String query, int columns, String name)
+    public static void runQuery(String query, int columns, String name)
     {
-        System.out.println(name);
+        System.out.println(" ");
+        System.out.println("Running task: " + name);
+        System.out.println("Query: " + query);
+        System.out.println(" ");
+
         try
         {
+            var connection = Database.getConnection();
             var statement = connection.prepareStatement(query);
             var result = statement.executeQuery();
 
