@@ -11,6 +11,7 @@ public class App {
 
     // CONFIG OPTIONS
     private static final String ISSUE_41_NAME_OF_CITY = "London";
+    private static final String ISSUE_40_NAME_OF_DISTRICT = "Scotland";
 
     public static void main(String[] args) {
         Database.connect();
@@ -30,6 +31,7 @@ public class App {
 
         Query.runQuery("SELECT population FROM city WHERE name='" + ISSUE_41_NAME_OF_CITY + "' LIMIT 1;", 1, "41-As a user, I want to view the population of a city.");
 
+        Query.runQuery("SELECT SUM(population) FROM city WHERE district='" + ISSUE_40_NAME_OF_DISTRICT + "';", 1, "40-As a user, I want to view the population of a district.");
     }
 
 }
