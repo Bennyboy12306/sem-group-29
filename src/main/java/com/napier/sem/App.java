@@ -1,8 +1,5 @@
 package com.napier.sem;
 
-import java.sql.SQLException;
-import java.util.Scanner;
-
 /**
  * This class contains main() and is the entry-point for our application.
  * The database class is called in order to create a connection for our application session.
@@ -14,6 +11,7 @@ public class App {
     private static final String ISSUE_40_NAME_OF_DISTRICT = "Scotland";
     private static final String ISSUE_39_NAME_OF_COUNTRY = "United Kingdom";
     private static final String ISSUE_37_NAME_OF_CONTINENT = "Europe";
+    private static final String ISSUE_38_NAME_OF_REGION = "British Islands";
 
     public static void main(String[] args) {
         Database.connect();
@@ -39,7 +37,7 @@ public class App {
 
         Query.runQuery("SELECT SUM(population) FROM country WHERE continent='" + ISSUE_37_NAME_OF_CONTINENT + "';", 1, "37-As a user, I want to view the population of a continent.");
 
-        Query.runQuery("SELECT SUM(population) FROM country WHERE continent='" + ISSUE_37_NAME_OF_CONTINENT + "';", 1, "37-As a user, I want to view the population of a continent.");
+        Query.runQuery("SELECT SUM(population) FROM country WHERE region='" + ISSUE_38_NAME_OF_REGION + "';", 1, "38-As a user, I want to view the population of a region.");
     }
 
 }
