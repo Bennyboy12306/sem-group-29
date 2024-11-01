@@ -13,6 +13,7 @@ public class App {
     private static final String ISSUE_41_NAME_OF_CITY = "London";
     private static final String ISSUE_40_NAME_OF_DISTRICT = "Scotland";
     private static final String ISSUE_39_NAME_OF_COUNTRY = "United Kingdom";
+    private static final String ISSUE_37_NAME_OF_CONTINENT = "Europe";
 
     public static void main(String[] args) {
         Database.connect();
@@ -34,7 +35,11 @@ public class App {
 
         Query.runQuery("SELECT SUM(population) FROM city WHERE district='" + ISSUE_40_NAME_OF_DISTRICT + "';", 1, "40-As a user, I want to view the population of a district.");
 
-        Query.runQuery("SELECT population FROM country WHERE name='" + ISSUE_39_NAME_OF_COUNTRY + "';", 1, "39-As a user, I want to view the population of a country. ");
+        Query.runQuery("SELECT population FROM country WHERE name='" + ISSUE_39_NAME_OF_COUNTRY + "';", 1, "39-As a user, I want to view the population of a country.");
+
+        Query.runQuery("SELECT SUM(population) FROM country WHERE continent='" + ISSUE_37_NAME_OF_CONTINENT + "';", 1, "37-As a user, I want to view the population of a continent.");
+
+        Query.runQuery("SELECT SUM(population) FROM country WHERE continent='" + ISSUE_37_NAME_OF_CONTINENT + "';", 1, "37-As a user, I want to view the population of a continent.");
     }
 
 }
