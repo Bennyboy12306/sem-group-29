@@ -1,6 +1,6 @@
 <h1>Unit Testing Document</h1>  
 
-To run unitTests please run AppTest alone, it is connected to Docker app-run-94d container when ran
+To run unitTests please run AppTest alone, it is connected the test container when ran
 
 Done this as unitTests don't have to be run every time the application is utilized, it causes unnecessary bloat
 
