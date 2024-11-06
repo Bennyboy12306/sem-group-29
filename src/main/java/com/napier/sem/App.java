@@ -1,11 +1,5 @@
 package com.napier.sem;
-
-import org.junit.jupiter.api.Test;
-
 import java.sql.Connection;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * This class contains main() and is the entry-point for our application.

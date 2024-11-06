@@ -5,3 +5,8 @@ services:
   db:
     build: db/.
     restart: always
+
+  test:
+    build: .
+    depends_on:
+      - db
