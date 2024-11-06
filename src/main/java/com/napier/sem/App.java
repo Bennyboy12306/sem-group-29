@@ -1,13 +1,9 @@
 package com.napier.sem;
-import java.sql.Connection;
 
 /**
  * This class contains main() and is the entry-point for our application.
  * The database class is called in order to create a connection for our application session.
  */
-
-
-
 public class App {
 
     // CONFIG OPTIONS
@@ -19,7 +15,6 @@ public class App {
 
     public static void main(String[] args) {
         Database.connect();
-
 
         // Query Usage, Query.runQuery("<your query>", <expected columns from this query>, <name of query>).
         // To test run `docker-compose down --rmi all` in terminal, package the app, run the docker compose.
@@ -46,4 +41,3 @@ public class App {
     }
 
 }
-

@@ -12,13 +12,13 @@ public class Database {
 
     private static Connection connection;
 
-    public static boolean connect() {
+    public static void connect() {
         // Ensure the SQL driver is present
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             System.out.println("Could not load SQL driver");
-            return false;
+            return;
         }
 
         // Try once when connect() is called, and repeat 10 times waiting 10 seconds between tries until a connection can be established.
@@ -39,9 +39,7 @@ public class Database {
                 }
             }
         }
-        return connection != null;
     }
-
 
     public static Connection getConnection() {
         return connection;
