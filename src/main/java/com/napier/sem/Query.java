@@ -1,6 +1,5 @@
 package com.napier.sem;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -12,9 +11,9 @@ public class Query {
     /**
      * This method is used to run a query and handle exceptions.
      * TODO Change this to output each query to their own file instead of printing everything to console
-     * @param connection the database connection.
      * @param query the query to run.
      * @param columns how many columns this query will return (for formatting)
+     * @param name the name of this query
      */
     public static void runQuery(String query, int columns, String name)
     {
