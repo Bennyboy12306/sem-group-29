@@ -25,10 +25,13 @@ class AppTest
         assertNotNull(Database.getConnection());
     }
 
+    /**
+     * This test checks that queries are being handled properly
+     */
     @Test
     void queryTest()
     {
-        String queryResult = Query.runTestQuery("Show TABLES;", 1);
+        String queryResult = Query.runQuery("Show TABLES;", 1, "Test Query", true);
         assertNotNull(queryResult);
     }
 }
