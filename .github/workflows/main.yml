@@ -22,4 +22,4 @@ jobs:
         run: docker compose up -d
 
       - name: Run tests
-        run: docker exec --network semnetwork app mvn -Dtest=com.napier.sem.AppTest test
+        run: docker exec app mvn -Dtest=com.napier.sem.AppTest test
