@@ -27,5 +27,18 @@ class AppTest
         assertNotNull(Database.getConnection());
     }
 
-
+    @Test
+    void queryTest()
+    {
+        try
+        {
+            var connection = Database.getConnection();
+            var statement = connection.prepareStatement("SHOW TABLES;");
+            var result = statement.executeQuery();
+            assertNotEquals( "", Query.formatResult(result, 1));
+        } catch (SQLException e)
+        {
+            assert false;
+        }
+    }
 }
