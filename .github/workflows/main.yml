@@ -15,11 +15,14 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
+      - name: Run docker compose of old image
+        run: docker compose up -d
+
       - name: Compile and package with Maven
         run: mvn clean package
 
-      - name: Run docker compose
-        run: docker compose up -d
+      - name: Reset image
+        run: docker-compose down --rmi all
 
-      - name: Ensure tests are running
-        run: mvn clean test
+      - name: Run docker compose of new image
+        run: docker compose up -d
