@@ -2,8 +2,6 @@ package com.napier.sem;
 
 import org.junit.jupiter.api.*;
 
-import java.sql.SQLException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -30,6 +28,7 @@ class AppTest
     @Test
     void queryTest()
     {
-        Query.runQuery("Show TABLES;", 1, "Test Query");
+        String queryResult = Query.runTestQuery("Show TABLES;", 1);
+        assertNotNull(queryResult);
     }
 }

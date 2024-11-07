@@ -38,6 +38,33 @@ public class Query {
     }
 
     /**
+     * This method is used to run a test query and handle exceptions.
+     * TODO Change this to output each query to their own file instead of printing everything to console
+     * @param query the query to run.
+     * @param columns how many columns this query will return (for formatting)
+     */
+    public static String runTestQuery(String query, int columns)
+    {
+        try
+        {
+            var connection = Database.getConnection();
+            var statement = connection.prepareStatement(query);
+            var result = statement.executeQuery();
+
+            String resultString = "";
+
+            while (result.next()) {
+                resultString += (formatResult(result, columns));
+            }
+
+            return resultString;
+        } catch (SQLException e)
+        {
+            return null;
+        }
+    }
+
+    /**
      * This method formats the result so that all columns from the result are shown.
      * @param result the query result.
      * @param columns how many columns the query result has.
