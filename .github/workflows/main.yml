@@ -19,7 +19,7 @@ jobs:
         run: |
           docker build -t database ./db 
           docker run --name testdb -dp 3306 database
-          mvn clean package -Dmaven.test.skip=true
+          mvn -Dtest=com.napier.sem.AppTest test
           docker stop testdb
           docker rm testdb
           docker image rm testdb
