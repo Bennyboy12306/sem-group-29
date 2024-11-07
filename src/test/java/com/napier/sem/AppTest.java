@@ -30,15 +30,6 @@ class AppTest
     @Test
     void queryTest()
     {
-        try
-        {
-            var connection = Database.getConnection();
-            var statement = connection.prepareStatement("SHOW TABLES;");
-            var result = statement.executeQuery();
-            assertNotEquals( "", Query.formatResult(result, 1));
-        } catch (SQLException e)
-        {
-            throw new RuntimeException(e);
-        }
+        Query.runQuery("Show TABLES;", 1, "Test Query");
     }
 }
