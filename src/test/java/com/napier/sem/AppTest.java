@@ -38,7 +38,7 @@ class AppTest
             assertNotEquals( "", Query.formatResult(result, 1));
         } catch (SQLException e)
         {
-            assert false;
+            throw new RuntimeException(e);
         }
     }
 }
