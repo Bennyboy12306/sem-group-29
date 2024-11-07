@@ -22,7 +22,6 @@ jobs:
           mvn -Dtest=com.napier.sem.AppTest test
           docker stop testdb
           docker rm testdb
-          docker image rm testdb
 
   build:
     name: Population Reporting Action
