@@ -12,13 +12,12 @@ class AppTest
     @BeforeAll
     static void init()
     {
-        db = new Database();
-        db.connect();
     }
 
     @Test
     void databaseTest()
     {
-        assertNotEquals(null, db.getConnection());
+        Database.connect();
+        assertNotEquals(null, Database.getConnection());
     }
 }
