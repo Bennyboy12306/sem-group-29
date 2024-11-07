@@ -1,23 +1,39 @@
 package com.napier.sem;
 
 import org.junit.jupiter.api.*;
+
+import java.sql.SQLException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
 class AppTest
 {
 
-    @BeforeAll
-    static void init()
-    {
-    }
+    // Note due to the nature of how our database works, test will only succeed if run from git actions
 
+    /**
+     * This test checks if the database has been connected successfully
+     */
     @Test
     void databaseTest()
     {
-        // This test is not run until database.connect(); finished, because this test is not in docker the database connection never succeeds
-        // Potential solutions, somehow run this in docker or dynamically create a container that can be used directly from here
         Database.connect(true);
-        assertNotEquals(null, Database.getConnection());
+        assertNotNull(Database.getConnection());
+    }
+
+    @Test
+    void queryTest()
+    {
+        try
+        {
+            var connection = Database.getConnection();
+            var statement = connection.prepareStatement("SHOW TABLES;");
+            var result = statement.executeQuery();
+            assertNotNull(result);
+        } catch (SQLException e)
+        {
+            assert false;
+        }
     }
 }
