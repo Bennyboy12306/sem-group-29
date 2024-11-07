@@ -12,7 +12,7 @@ public class Database {
 
     private static Connection connection;
 
-    public static void connect() {
+    public static void connect(boolean test) {
         // Ensure the SQL driver is present
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -25,7 +25,7 @@ public class Database {
         for (int i = 0; i < 10; i++) {
             System.out.println("Attempting to establish a database connection...");
             try {
-                connection = DriverManager.getConnection("jdbc:mysql://db:3306/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "password");
+                connection = DriverManager.getConnection("jdbc:mysql://" + (test ? "localhost:33066" : "db:3306") + "/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "password");
                 System.out.println("Database connection established successfully.");
                 break;
             } catch (SQLException e) {
