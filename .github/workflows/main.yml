@@ -15,8 +15,11 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
+      - name: Run docker compose db
+        run: docker compose up -d -f docker-compose-db.yml
+
       - name: Compile and package with Maven
         run: mvn clean package
 
-      - name: Run docker compose
-        run: docker compose up -d
+      - name: Run docker compose app
+        run: docker compose up -d -f docker-compose-app.yml
