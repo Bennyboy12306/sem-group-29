@@ -44,7 +44,7 @@ public class Query {
      * @return the formatted text for 1 row of the result.
      * @throws SQLException if the result formatting has failed.
      */
-    private static String formatResult(ResultSet result, int columns) throws SQLException {
+    public static String formatResult(ResultSet result, int columns) throws SQLException {
         StringBuilder formatted_result = new StringBuilder(" | ");
         try {
             for (int i = 1; i <= columns; i++) {

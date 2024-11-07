@@ -30,7 +30,7 @@ class AppTest
             var connection = Database.getConnection();
             var statement = connection.prepareStatement("SHOW TABLES;");
             var result = statement.executeQuery();
-            assertNotNull(result);
+            assertNotEquals( "", Query.formatResult(result, 1));
         } catch (SQLException e)
         {
             assert false;
