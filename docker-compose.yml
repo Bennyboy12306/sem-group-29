@@ -1,0 +1,7 @@
+services:
+  db:
+    build: db/.
+    restart: always
+
+  app:
+    build: ./
