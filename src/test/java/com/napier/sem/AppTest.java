@@ -19,6 +19,6 @@ class AppTest
     @Test
     void databaseTest()
     {
-        assertNotEquals(null, Database.getConnection());
+        assertNotEquals(null, db.getConnection());
     }
 }
