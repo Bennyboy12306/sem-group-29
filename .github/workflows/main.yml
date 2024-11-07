@@ -16,7 +16,10 @@ jobs:
           distribution: 'adopt'
 
       - name: Compile and package with Maven
-        run: mvn clean package
+        run: mvn clean package -DskipTests
 
       - name: Run docker compose
         run: docker compose up -d
+
+      - name: Unit Tests
+        run: mvn =Dtest=com.napier.sem.AppTest test
