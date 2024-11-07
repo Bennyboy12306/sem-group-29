@@ -16,10 +16,10 @@ jobs:
           distribution: 'adopt'
 
       - name: Run docker compose db
-        run: docker compose up -f docker-compose-db.yml -d
+        run: docker compose -f docker-compose-db.yml -p sem29 up -d
 
       - name: Compile and package with Maven
         run: mvn clean package
 
       - name: Run docker compose app
-        run: docker compose up -f docker-compose-app.yml -d
+        run: docker compose -f docker-compose-app.yml -p sem29 up -d
