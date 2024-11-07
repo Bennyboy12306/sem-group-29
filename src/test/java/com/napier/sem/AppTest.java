@@ -34,4 +34,11 @@ class AppTest
         String queryResult = Query.runQuery("Show TABLES;", 1, "Test Query", true);
         assertNotNull(queryResult);
     }
+
+    @Test
+    void countryDataIntegrityTest()
+    {
+        String queryResult = Query.runQuery("SELECT COUNT(*) FROM country;", 1, "Test", true);
+        assert(queryResult.contains("| 239 |"));
+    }
 }
