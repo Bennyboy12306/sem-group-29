@@ -2,14 +2,6 @@ services:
   db:
     build: db/.
     restart: always
-    networks:
-      - semnetwork
 
   app:
     build: ./
-    networks:
-      - semnetwork
-
-networks:
-  semnetwork:
-    driver: bridge

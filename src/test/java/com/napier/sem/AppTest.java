@@ -17,7 +17,7 @@ class AppTest
     {
         // This test is not run until database.connect(); finished, because this test is not in docker the database connection never succeeds
         // Potential solutions, somehow run this in docker or dynamically create a container that can be used directly from here
-        Database.connect();
+        Database.connect(true);
         assertNotEquals(null, Database.getConnection());
     }
 }

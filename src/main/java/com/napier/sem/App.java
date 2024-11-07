@@ -14,7 +14,7 @@ public class App {
     private static final String ISSUE_38_NAME_OF_REGION = "British Islands";
 
     public static void main(String[] args) {
-        Database.connect();
+        Database.connect(false);
 
         // Query Usage, Query.runQuery("<your query>", <expected columns from this query>, <name of query>).
         // To test run `docker-compose down --rmi all` in terminal, package the app, run the docker compose.

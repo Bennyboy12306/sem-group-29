@@ -2,6 +2,28 @@ name: A workflow for population reporting system
 on: push
 
 jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+
+      - name: Run tests
+        run: |
+          docker build -t database ./db 
+          docker run --name testdb -dp 3306 database
+          mvn clean package -Dmaven.test.skip=true
+          docker stop testdb
+          docker rm testdb
+          docker image rm testdb
+
   build:
     name: Population Reporting Action
     runs-on: ubuntu-20.04
@@ -20,6 +42,3 @@ jobs:
 
       - name: Run docker compose app
         run: docker compose up -d
-
-      - name: Run tests
-        run: docker exec app mvn -Dtest=com.napier.sem.AppTest test
