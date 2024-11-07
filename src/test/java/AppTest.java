@@ -8,17 +8,18 @@ import com.napier.sem.Database;
 class AppTest
 {
 
+    static Database db;
+
     @BeforeAll
     static void init()
     {
+        db = new Database();
+        db.connect();
     }
 
     @Test
     void databaseTest()
     {
-        // This test is not run until database.connect(); finished, because this test is not in docker the database connection never succeeds
-        // Potential solutions, somehow run this in docker or dynamically create a container that can be used directly from here
-        Database.connect();
         assertNotEquals(null, Database.getConnection());
     }
 }
