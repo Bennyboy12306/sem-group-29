@@ -23,8 +23,11 @@ public class Query {
             System.out.println("Running task: " + name);
             System.out.println("Query: " + query);
             System.out.println(" ");
-        }
 
+            if (query == null){
+                System.out.println("Query shouldn't be null!");
+            }
+        }
         try
         {
             var connection = Database.getConnection();
@@ -48,6 +51,9 @@ public class Query {
             }
 
             if (test){
+                if (query == null){
+                    System.out.println("Query shouldn't be null!");
+                }
                 return resultString;
             }
         } catch (SQLException e)

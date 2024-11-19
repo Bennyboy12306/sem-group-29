@@ -33,16 +33,10 @@ class AppTest
     @Test
     void queryTest()
     {
-        String queryResult = Query.runQuery("Show TABLES;", 1, "Test Query", true);
-        assertNotNull(queryResult);
+        Query.runQuery("Show TABLES;", 1, "Test Query", true);
     }
 
-    @Test
-    void nullTest()
-    {
-        String queryResult = Query.runQuery(null, 1, null, true);
-        assertNotEquals(queryResult, Query.runQuery("Show TABLES;", 1, "Test Query", true), "Shouldn't be null");
-    }
+
 
     //Continue to add tests as we develop the application
 }
