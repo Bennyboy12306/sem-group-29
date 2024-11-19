@@ -8,9 +8,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class AppTest
 {
 
-    // Integration Tests
+    // Integration & Standard Tests
 
-    // Note due to the nature of how our database works, test will only succeed if run from git actions
+    // Note due to the nature of how our database works, integration test will only succeed if run from git actions
 
     @BeforeAll
     static void init()
