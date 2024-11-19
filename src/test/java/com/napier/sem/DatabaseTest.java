@@ -22,7 +22,7 @@ class DatabaseTest {
 
     @Test
         // -- Standard failed connection
-    void failedTrue(){
+    void getConnectionFail(){
         assertEquals(true, false, "Unable to get connection");
     }
 
@@ -35,7 +35,7 @@ class DatabaseTest {
     @Test
         // -- Connection is Null
         // -- This does not test for failed connections
-    void falseConnection() {
+    void nullConnection() {
         assertEquals(false, null, "Attempted to connect but received Null");
     }
 }
