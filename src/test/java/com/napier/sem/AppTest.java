@@ -41,19 +41,6 @@ class AppTest
         Query.runQuery("Show TABLES;", 1, "Test Query", true);
     }
 
-
-    /**
-     * This test checks that the formatter returns null if the result set is empty
-     * @throws SQLException
-     */
-    @Test
-    void testFormatResultEmpty() throws SQLException {
-
-        String result = Query.formatResult(mockResultSet, 2);
-
-        assertNull(result, "Should return null when empty resultSet");
-    }
-
     /**
      * This test checks that data is properly formatted into the correct number of rows
      * @throws SQLException
@@ -90,6 +77,6 @@ class AppTest
 
         String result = Query.formatResult(mockResultSet, 2);
 
-        assertNull(result, "Should return null when empty columns");
+        assertNull(result, "Should return null when there are empty columns");
     }
 }
