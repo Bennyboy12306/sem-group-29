@@ -52,7 +52,7 @@ class QueryTest {
         String result = Query.formatResult(mockResultSet, 2);
 
         // Fix added for empty columns
-        assertEquals(" | EMPTY | EMPTY | ", result, "Should return EMPTY for each column that's empty");
+        assertNull(result, "Should return null");
     }
 
 }

@@ -63,14 +63,14 @@ public class Query {
         try {
             for (int i = 1; i <= columns; i++) {
 
-                if (result == null){
+                if (result == null ){
                     return null;
                 }
 
                 String value = result.getString(i);
 
                 if (value.isEmpty()) {
-                    value = "EMPTY";
+                    return null;
                 }
 
                 formatted_result.append(value);
