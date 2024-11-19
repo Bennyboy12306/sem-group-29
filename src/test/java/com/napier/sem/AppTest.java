@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AppTest
 {
 
-    // Integration & Standard Tests
+    // Integration Test
 
     // Note due to the nature of how our database works, integration test will only succeed if run from git actions
 
@@ -37,5 +37,11 @@ class AppTest
         assertNotNull(queryResult);
     }
 
+    @Test
+    void nullQueries(){
+        String queryResult = Query.runQuery(null, 1, null, true);
+        assertNotNull(queryResult);
+
+    }
     //Continue to add tests as we develop the application
 }
