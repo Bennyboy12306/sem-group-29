@@ -7,9 +7,6 @@ package com.napier.sem;
 public class App {
 
     // CONFIG OPTIONS
-    private static final String ISSUE_12_NAME_OF_CONTINENT = "Europe";
-    private static final String ISSUE_13_NAME_OF_REGION = "Eastern Europe";
-    private static final String ISSUE_14_N_COUNTRIES = "10";
     private static final String ISSUE_41_NAME_OF_CITY = "London";
     private static final String ISSUE_40_NAME_OF_DISTRICT = "Scotland";
     private static final String ISSUE_39_NAME_OF_COUNTRY = "United Kingdom";
@@ -24,9 +21,9 @@ public class App {
         // and expand the app section of the docker compose in the services tab to see the output.
         // It may take a few attempts to connect.
 
-        Query.runQuery("SELECT name, population FROM country ORDER BY population DESC;", 2, "11-Countries-ordered-by-population", false);
+        Query.runQuery("SELECT name, population FROM country ORDER BY population DESC;", 2, "11-Countries-ordered-by-population", false); // Report 1 (Issue #11)
 
-        Query.runQuery("SELECT name, population FROM city ORDER BY population DESC;", 2, "17-Cities-ordered-by-population", false);
+        Query.runQuery("SELECT name, population FROM city ORDER BY population DESC;", 2, "17-Cities-ordered-by-population", false); // Report 7 (Issue #17)
 
         Query.runQuery("SELECT SUM(population) as totalPopulation FROM country;", 1, "36-As a user, I want to view the population of the world.", false);
 
@@ -39,12 +36,6 @@ public class App {
         Query.runQuery("SELECT SUM(population) FROM country WHERE continent='" + ISSUE_37_NAME_OF_CONTINENT + "';", 1, "37-As a user, I want to view the population of a continent.", false);
 
         Query.runQuery("SELECT SUM(population) FROM country WHERE region='" + ISSUE_38_NAME_OF_REGION + "';", 1, "38-As a user, I want to view the population of a region." ,false);
-
-        Query.runQuery("SELECT name, population FROM country WHERE continent='" + ISSUE_12_NAME_OF_CONTINENT + "' ORDER BY population DESC;", 2, "12-As a user, I want to view all countries in a continent organized by largest population to smallest.", false);
-
-        Query.runQuery("SELECT name, population FROM country WHERE region='" + ISSUE_13_NAME_OF_REGION + "' ORDER BY population DESC;", 2, "13-As a user, I want to view all countries in a region organized by largest population to smallest", false);
-
-        Query.runQuery("SELECT name, population FROM country ORDER BY population DESC LIMIT " + ISSUE_14_N_COUNTRIES + ";", 2, "14-As a user, I want to view the top N populated countries in the world where N is provided by me", false);
     }
 
 }
