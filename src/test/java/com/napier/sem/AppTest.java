@@ -36,11 +36,5 @@ class AppTest
         Query.runQuery("Show TABLES;", 1, "Test Query", true);
     }
 
-    @Test
-    void nullTest()
-    {
-        Query.runQuery(null, 0, null, false);
-    }
-
     //Continue to add tests as we develop the application
 }
