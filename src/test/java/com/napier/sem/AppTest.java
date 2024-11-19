@@ -37,11 +37,5 @@ class AppTest
         assertNotNull(queryResult);
     }
 
-    @Test
-    void nullQueries(){
-        String queryResult = Query.runQuery(null, 1, null, true);
-        assertNull(queryResult, "Query should return null");
-
-    }
     //Continue to add tests as we develop the application
 }

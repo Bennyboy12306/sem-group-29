@@ -33,10 +33,6 @@ public class Query {
 
             String resultString = "";
 
-            if (result == null) {
-                System.out.println("Result is null, does not exist");
-                return resultString;
-            }
 
             while (result.next()) {
                 if (test)
