@@ -8,6 +8,7 @@ public class App {
 
     // CONFIG OPTIONS
     private static final String ISSUE_12_NAME_OF_CONTINENT = "Europe";
+    private static final String ISSUE_13_NAME_OF_REGION = "Eastern Europe";
     private static final String ISSUE_41_NAME_OF_CITY = "London";
     private static final String ISSUE_40_NAME_OF_DISTRICT = "Scotland";
     private static final String ISSUE_39_NAME_OF_COUNTRY = "United Kingdom";
@@ -39,6 +40,8 @@ public class App {
         Query.runQuery("SELECT SUM(population) FROM country WHERE region='" + ISSUE_38_NAME_OF_REGION + "';", 1, "38-As a user, I want to view the population of a region." ,false);
 
         Query.runQuery("SELECT name, population FROM country WHERE continent='" + ISSUE_12_NAME_OF_CONTINENT + "' ORDER BY population DESC;", 2, "12-As a user, I want to view all countries in a continent organized by largest population to smallest.", false);
+
+        Query.runQuery("SELECT name, population FROM country WHERE region='" + ISSUE_13_NAME_OF_REGION + "' ORDER BY population DESC;", 2, "13-As a user, I want to view all countries in a region organized by largest population to smallest", false);
     }
 
 }
