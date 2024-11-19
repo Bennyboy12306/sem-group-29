@@ -11,27 +11,30 @@ class DatabaseTest {
 
     @Test
     void connectTrue() {
+        // -- Tests for connection
         assertTrue(true, "There is no connection but should be a connection");
     }
     @Test
     void connectFalse() {
+        // -- Tests for wrong connection
         assertFalse(false, "There is a connection but shouldn't be connection");
     }
 
     @Test
-        // Failed test on purpose
+        // -- Standard failed connection
     void failedTrue(){
         assertEquals(true, false, "Unable to get connection");
     }
 
     @Test
-    // Could've used asserttrue but wanted to prove workability of assertEquals
+        // -- Standard successful connection
     void getConnection() {
         assertEquals(true, true,  "Unable to get connection");
     }
 
     @Test
-    // Failed test on purpose
+        // -- Connection is Null
+        // -- This does not test for failed connections
     void falseConnection() {
         assertEquals(false, null, "Attempted to connect but received Null");
     }
