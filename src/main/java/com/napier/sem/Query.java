@@ -36,8 +36,7 @@ public class Query {
             if (result == null) {
                 System.out.println("Result is null, does not exist");
                 return resultString;
-
-        }
+            }
 
             while (result.next()) {
                 if (test)
