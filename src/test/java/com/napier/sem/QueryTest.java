@@ -41,7 +41,7 @@ class QueryTest {
         String result = Query.formatResult(null, 2);
 
         // Fix added for null
-        assertNull(result, "Should return EMPTY for each column that's null");
+        assertNull(result, "Should return null");
     }
 
     @Test

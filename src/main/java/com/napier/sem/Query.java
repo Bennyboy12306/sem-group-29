@@ -62,10 +62,17 @@ public class Query {
         StringBuilder formatted_result = new StringBuilder(" | ");
         try {
             for (int i = 1; i <= columns; i++) {
+
+                if (result == null){
+                    return null;
+                }
+
                 String value = result.getString(i);
-                if (value == null || value.isEmpty()) {
+
+                if (value.isEmpty()) {
                     value = "EMPTY";
                 }
+
                 formatted_result.append(value);
                 formatted_result.append(" | ");
             }
