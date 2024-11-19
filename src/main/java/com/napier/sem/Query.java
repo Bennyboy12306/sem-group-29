@@ -16,20 +16,14 @@ public class Query {
      * @param columns how many columns this query will return (for formatting)
      * @param name    the name of this query
      */
-    public static String runQuery(String query, int columns, String name, boolean test)
-    {
+    public static String runQuery(String query, int columns, String name, boolean test) {
         if (!test) {
             System.out.println(" ");
             System.out.println("Running task: " + name);
             System.out.println("Query: " + query);
             System.out.println(" ");
-
-            if (query == null){
-                System.out.println("Query shouldn't be null!");
-            }
         }
-        try
-        {
+        try {
             var connection = Database.getConnection();
             var statement = connection.prepareStatement(query);
             var result = statement.executeQuery();
@@ -38,26 +32,19 @@ public class Query {
 
 
             while (result.next()) {
-                if (test)
-                {
+                if (test) {
                     resultString += (formatResult(result, columns));
 
-                }
-                else
-                {
+                } else {
                     System.out.println(formatResult(result, columns));
                 }
 
             }
 
-            if (test){
-                if (query == null){
-                    System.out.println("Query shouldn't be null!");
-                }
+            if (test) {
                 return resultString;
             }
-        } catch (SQLException e)
-        {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return null;
@@ -65,7 +52,8 @@ public class Query {
 
     /**
      * This method formats the result so that all columns from the result are shown.
-     * @param result the query result.
+     *
+     * @param result  the query result.
      * @param columns how many columns the query result has.
      * @return the formatted text for 1 row of the result.
      * @throws SQLException if the result formatting has failed.
@@ -74,16 +62,15 @@ public class Query {
         StringBuilder formatted_result = new StringBuilder(" | ");
         try {
             for (int i = 1; i <= columns; i++) {
-                if (result == null){
-                    return null;
+                String value = result.getString(i);
+                if (value == null || value.isEmpty()) {
+                    value = "EMPTY";
                 }
-                formatted_result.append(result.getString(i));
+                formatted_result.append(value);
                 formatted_result.append(" | ");
             }
-
             return formatted_result.toString();
-        }catch (SQLException e)
-        {
+        } catch (SQLException e) {
             throw new SQLException("Formatting Query Result Failed");
         }
     }
