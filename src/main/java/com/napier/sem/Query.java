@@ -75,8 +75,7 @@ public class Query {
         try {
             for (int i = 1; i <= columns; i++) {
                 if (result == null){
-                    System.out.println("formatResult shouldn't be null!");
-                    break;
+                    return null;
                 }
                 formatted_result.append(result.getString(i));
                 formatted_result.append(" | ");
