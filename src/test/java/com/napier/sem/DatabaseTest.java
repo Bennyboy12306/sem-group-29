@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DatabaseTest {
     // -- Simple true and false connections
+    // -- Ideally DatabaseTests should be integrated - And they have been in AppTest
+    // -- Added fake statements to showcase how failed tests would look
 
     @Test
     void connectTrue() {
@@ -13,7 +15,7 @@ class DatabaseTest {
     }
     @Test
     void connectFalse() {
-        assertFalse(false, "There is connection but shouldn't be connection");
+        assertFalse(false, "There is a connection but shouldn't be connection");
     }
 
     @Test
