@@ -10,6 +10,8 @@ public class App {
     private static final String ISSUE_12_NAME_OF_CONTINENT = "Europe";
     private static final String ISSUE_13_NAME_OF_REGION = "Eastern Europe";
     private static final String ISSUE_14_N_COUNTRIES = "10";
+    private static final String ISSUE_15_NAME_OF_CONTINENT = "Asia";
+    private static final String ISSUE_15_N_COUNTRIES = "8";
     private static final String ISSUE_41_NAME_OF_CITY = "London";
     private static final String ISSUE_40_NAME_OF_DISTRICT = "Scotland";
     private static final String ISSUE_39_NAME_OF_COUNTRY = "United Kingdom";
@@ -45,6 +47,8 @@ public class App {
         Query.runQuery("SELECT name, population FROM country WHERE region='" + ISSUE_13_NAME_OF_REGION + "' ORDER BY population DESC;", 2, "13-As a user, I want to view all countries in a region organized by largest population to smallest", false);
 
         Query.runQuery("SELECT name, population FROM country ORDER BY population DESC LIMIT " + ISSUE_14_N_COUNTRIES + ";", 2, "14-As a user, I want to view the top N populated countries in the world where N is provided by me", false);
+
+        Query.runQuery("SELECT name, population FROM country WHERE continent='" + ISSUE_15_NAME_OF_CONTINENT + "' ORDER BY population DESC LIMIT " + ISSUE_15_N_COUNTRIES + ";", 2, "15-As a user, I want to view the top N populated countries in a continent where N is provided by me", false);
     }
 
 }
