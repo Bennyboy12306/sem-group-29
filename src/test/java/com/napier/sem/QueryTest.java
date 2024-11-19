@@ -32,8 +32,6 @@ class QueryTest {
 
     /*--
     When testing after changing code please change the thenReturn to whatever values required
-    EMPTY text was utilized as it better visualizes how the code performs rather than returning a boolean
-    EMPTY can also be used if information for a query doesn't exist
      */
 
     @Test
