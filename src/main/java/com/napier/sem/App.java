@@ -14,6 +14,7 @@ public class App {
     private static final String ISSUE_15_N_COUNTRIES = "8";
     private static final String ISSUE_16_NAME_OF_REGION = "Eastern Europe";
     private static final String ISSUE_16_N_COUNTRIES = "4";
+    private static final String ISSUE_18_NAME_OF_CONTINENT = "Asia";
     private static final String ISSUE_41_NAME_OF_CITY = "London";
     private static final String ISSUE_40_NAME_OF_DISTRICT = "Scotland";
     private static final String ISSUE_39_NAME_OF_COUNTRY = "United Kingdom";
@@ -53,6 +54,8 @@ public class App {
         Query.runQuery("SELECT name, population FROM country WHERE continent='" + ISSUE_15_NAME_OF_CONTINENT + "' ORDER BY population DESC LIMIT " + ISSUE_15_N_COUNTRIES + ";", 2, "15-As a user, I want to view the top N populated countries in a continent where N is provided by me", false);
 
         Query.runQuery("SELECT name, population FROM country WHERE region='" + ISSUE_16_NAME_OF_REGION + "' ORDER BY population DESC LIMIT " + ISSUE_16_N_COUNTRIES + ";", 2, "16-As a user, I want to view the top N populated countries in a region where N is provided by me", false);
+
+        Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE continent='" + ISSUE_18_NAME_OF_CONTINENT + "'ORDER BY population DESC;", 2, "18-As a user, I want to view all cities in a continent organised by largest population to smallest.", false);
     }
 
 }
