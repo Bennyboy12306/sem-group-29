@@ -18,10 +18,7 @@ public class Query {
      */
     public static String runQuery(String query, int columns, String name, boolean test) {
         if (!test) {
-            System.out.println(" ");
-            System.out.println("Running task: " + name);
-            System.out.println("Query: " + query);
-            System.out.println(" ");
+            printQueryDetails(name, query);
         }
         try {
             var connection = Database.getConnection();
@@ -48,6 +45,19 @@ public class Query {
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    public static Boolean printQueryDetails(String name, String query) {
+        if (name == null || query == null || query.isEmpty() || name.isEmpty()) {
+            return false;
+        }
+
+        System.out.println(" ");
+        System.out.println("Running task: " + name);
+        System.out.println("Query: " + query);
+        System.out.println(" ");
+
+        return true;
     }
 
     /**

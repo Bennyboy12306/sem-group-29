@@ -12,9 +12,7 @@ class AppTest
 {
     private static ResultSet mockResultSet;
 
-    // Integration and unit Test
-
-    // Note due to the nature of how our database works, integration test will only succeed if run from git actions
+    // Integration and unit Tests
 
     @BeforeAll
     static void init()
@@ -22,6 +20,9 @@ class AppTest
         Database.connect(true);
         mockResultSet = mock(ResultSet.class);
     }
+
+    //Integration Tests
+    // Note due to the nature of how our database works, integration test will only succeed if run from git actions
 
     /**
      * This test checks if the database has been connected successfully
@@ -38,12 +39,42 @@ class AppTest
     @Test
     void queryTest()
     {
-        Query.runQuery("Show TABLES;", 1, "Test Query", true);
+        assertNotNull(Query.runQuery("Show TABLES;", 1, "Test Query", true));
+    }
+
+    //Unit Tests
+    // Note some tests require Mockito
+
+    /**
+     * This test ensures that the print method is working correctly
+     */
+    @Test
+    void printTest()
+    {
+        assertTrue(Query.printQueryDetails("Test", "SHOW TABLES"));
+    }
+
+    /**
+     * This test ensures that the print method handles empty string being passed in
+     */
+    @Test
+    void printEmptyTest()
+    {
+        assertFalse(Query.printQueryDetails("", ""));
+    }
+
+    /**
+     * This test ensures that the print method handles null being passed in
+     */
+    @Test
+    void printNullTest()
+    {
+        assertFalse(Query.printQueryDetails(null, null));
     }
 
     /**
      * This test checks that data is properly formatted into the correct number of rows
-     * @throws SQLException
+     * @throws SQLException when something is wrong with result set data
      */
     @Test
     void testFormatResult() throws SQLException {
@@ -57,7 +88,7 @@ class AppTest
 
     /**
      * This test checks that the formatting returns null when the result set is null
-     * @throws SQLException
+     * @throws SQLException when something is wrong with result set data
      */
     @Test
     void testFormatResultNull() throws SQLException {
@@ -67,8 +98,8 @@ class AppTest
     }
 
     /**
-     * This test checks that the program returns null when the result set contains empty columns
-     * @throws SQLException
+     * This test checks that the formatting returns null when the result set contains empty columns
+     * @throws SQLException when something is wrong with result set data
      */
     @Test
     void testFormatResultEmptyColumns() throws SQLException {
