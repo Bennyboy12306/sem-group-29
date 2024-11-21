@@ -23,6 +23,7 @@ public class App {
     private static final String ISSUE_39_NAME_OF_COUNTRY = "United Kingdom";
     private static final String ISSUE_37_NAME_OF_CONTINENT = "Europe";
     private static final String ISSUE_38_NAME_OF_REGION = "British Islands";
+    private static final String ISSUE_22_N_COUNTRIES = "5";
 
     public static void main(String[] args) {
         Database.connect(false);
@@ -65,6 +66,8 @@ public class App {
         Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE country.name='" + ISSUE_20_NAME_OF_COUNTRY + "'ORDER BY population DESC;", 2, "20-As a user, I want to view all cities in a country organised by largest population to smallest.", false);
 
         Query.runQuery("SELECT name, population FROM city WHERE district='" + ISSUE_21_NAME_OF_DISTRICT + "'ORDER BY population DESC;", 2, "21-As a user, I want to view all cities in a district organised by largest population to smallest.", false);
+
+        Query.runQuery("SELECT name, population FROM city ORDER BY population DESC LIMIT " + ISSUE_22_N_COUNTRIES + ";", 2, "22-As a user, I want to view the top N populated cities in the world where N is provided by me.", false);
     }
 
 }
