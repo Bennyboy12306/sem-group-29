@@ -24,6 +24,8 @@ public class App {
     private static final String ISSUE_37_NAME_OF_CONTINENT = "Europe";
     private static final String ISSUE_38_NAME_OF_REGION = "British Islands";
     private static final String ISSUE_22_N_COUNTRIES = "5";
+    private static final String ISSUE_26_N_CITIES = "5";
+    private static final String ISSUE_26_DISTRICT = "California";
 
     public static void main(String[] args) {
         Database.connect(false);
@@ -68,6 +70,8 @@ public class App {
         Query.runQuery("SELECT name, population FROM city WHERE district='" + ISSUE_21_NAME_OF_DISTRICT + "'ORDER BY population DESC;", 2, "21-As a user, I want to view all cities in a district organised by largest population to smallest.", false);
 
         Query.runQuery("SELECT name, population FROM city ORDER BY population DESC LIMIT " + ISSUE_22_N_COUNTRIES + ";", 2, "22-As a user, I want to view the top N populated cities in the world where N is provided by me.", false);
+
+        Query.runQuery("SELECT name, population FROM city WHERE district='" + ISSUE_26_DISTRICT + "' ORDER BY population DESC LIMIT " + ISSUE_26_N_CITIES + ";", 2, "26-As a user, I want to view the top N populated cities in a district where N is provided by me.", false);
     }
 
 }
