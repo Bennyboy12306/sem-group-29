@@ -85,6 +85,8 @@ public class App {
 
         Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE continent='" + ISSUE_23_CONTINENT + "' ORDER BY population DESC LIMIT " + ISSUE_23_N_CITIES + ";", 2, "23-As a user, I want to view the top N populated cities in a continent where N is provided by me.", false);
 
+        Query.runQuery("SELECT continent, SUM(country.population) AS totalPop, SUM(city.population) AS inCities, SUM(country.population) - SUM(city.population) AS notInCities FROM country JOIN city ON Code=CountryCode GROUP BY continent;", 3, "33-As a user, I want to view the population of people, people living in cities, and people not living in cities in each continent.", false);
+
 
     }
 
