@@ -11,7 +11,7 @@ import static org.mockito.Mockito.*;
 class AppTest
 {
     private static ResultSet mockResultSet;
-
+  
     // Integration and unit Tests
 
     @BeforeAll

@@ -41,9 +41,9 @@ public class App {
         // and expand the app section of the docker compose in the services tab to see the output.
         // It may take a few attempts to connect.
 
-        Query.runQuery("SELECT name, population FROM country ORDER BY population DESC;", 2, "11-Countries-ordered-by-population", false);
+        Query.runQuery("SELECT name, population FROM country ORDER BY population DESC;", 2, "11-Countries-ordered-by-population", false); // Report 1 (Issue #11)
 
-        Query.runQuery("SELECT name, population FROM city ORDER BY population DESC;", 2, "17-Cities-ordered-by-population", false);
+        Query.runQuery("SELECT name, population FROM city ORDER BY population DESC;", 2, "17-Cities-ordered-by-population", false); // Report 7 (Issue #17)
 
         Query.runQuery("SELECT SUM(population) as totalPopulation FROM country;", 1, "36-As a user, I want to view the population of the world.", false);
 
@@ -84,7 +84,6 @@ public class App {
         Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE region='" + ISSUE_24_REGION + "' ORDER BY population DESC LIMIT " + ISSUE_24_N_CITIES + ";", 2, "24-As a user, I want to view the top N populated cities in a region where N is provided by me.", false);
 
         Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE continent='" + ISSUE_23_CONTINENT + "' ORDER BY population DESC LIMIT " + ISSUE_23_N_CITIES + ";", 2, "23-As a user, I want to view the top N populated cities in a continent where N is provided by me.", false);
-
 
         Query.runQuery("SELECT continent, SUM(country.population) AS totalPop, SUM(city.population) AS inCities, SUM(country.population) - SUM(city.population) AS notInCities FROM country JOIN city ON Code=CountryCode GROUP BY continent;", 4, "33-As a user, I want to view the population of people, people living in cities, and people not living in cities in each continent.", false);
 
