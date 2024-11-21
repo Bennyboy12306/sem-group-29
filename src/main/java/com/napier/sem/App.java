@@ -30,6 +30,8 @@ public class App {
     private static final String ISSUE_25_COUNTRY = "Mexico";
     private static final String ISSUE_24_REGION = "Western Europe";
     private static final String ISSUE_24_N_CITIES = "5";
+    private static final String ISSUE_23_N_CITIES = "5";
+    private static final String ISSUE_23_CONTINENT = "Europe";
 
     public static void main(String[] args) {
         Database.connect(false);
@@ -80,6 +82,10 @@ public class App {
         Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE country.name='" + ISSUE_25_COUNTRY + "' ORDER BY population DESC LIMIT " + ISSUE_25_N_CITIES + ";", 2, "25-As a user, I want to view the top N populated cities in a country where N is provided by me.", false);
 
         Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE region='" + ISSUE_24_REGION + "' ORDER BY population DESC LIMIT " + ISSUE_24_N_CITIES + ";", 2, "24-As a user, I want to view the top N populated cities in a region where N is provided by me.", false);
+
+        Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE continent='" + ISSUE_23_CONTINENT + "' ORDER BY population DESC LIMIT " + ISSUE_23_N_CITIES + ";", 2, "23-As a user, I want to view the top N populated cities in a continent where N is provided by me.", false);
+
+
     }
 
 }
