@@ -29,6 +29,7 @@ jobs:
 
   build:
     name: Population Reporting Action
+    needs: test
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
