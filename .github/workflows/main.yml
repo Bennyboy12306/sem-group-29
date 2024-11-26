@@ -42,6 +42,13 @@ jobs:
 
       - name: Compile and package with Maven
         run: mvn clean package -Dmaven.test.skip=true
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          automatic_release_tag: "latest"
+          files: |
+            ./target/*.jar
 
       - name: Run docker compose app
         run: docker compose up -d
