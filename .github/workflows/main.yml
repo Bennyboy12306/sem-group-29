@@ -41,33 +41,13 @@ jobs:
           distribution: 'adopt'
 
       - name: Compile and package with Maven
-        run: mvn clean package -Dmaven.test.skip=true
-
-      - name: Run docker compose app
-        run: docker compose up -d
-
-  release:
-
-    name: Create Release Action
-    runs-on: ubuntu-20.04
-
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
-
-      - name: conventional changelog action
-        id: changelog
-        uses: TriPSs/conventional-changelog-action@latest
+        run: | 
+          mvn clean package -Dmaven.test.skip=true
+          docker compose up --abort-on-container-exit
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-
-      - name: create release
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.changelog.outputs.tag }}
-          name: ${{ steps.changelog.outputs.tag }}
-          body: ${{steps.changelog.outputs.clean_changelog}}
-          draft: false
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
+          automatic_release_tag: "latest"
+          files: |
+            ./target/*.jar
