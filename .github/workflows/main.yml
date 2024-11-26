@@ -15,11 +15,15 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name: Run tests
+      - name: Run unit tests
+        run: |
+          mvn -Dtest=com.napier.sem.UnitTests test
+
+      - name: Run integration tests
         run: |
           docker build -t database ./db 
           docker run --name testdb -dp 33066:3306 database
-          mvn -Dtest=com.napier.sem.AppTest test
+          mvn -Dtest=com.napier.sem.IntegrationTests test
           docker stop testdb
           docker rm testdb
 
