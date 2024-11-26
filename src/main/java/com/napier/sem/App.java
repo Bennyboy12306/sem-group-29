@@ -41,9 +41,9 @@ public class App {
         // and expand the app section of the docker compose in the services tab to see the output.
         // It may take a few attempts to connect.
 
-        Query.runQuery("SELECT name, population FROM country ORDER BY population DESC;", 2, "11-Countries-ordered-by-population", false);
+        Query.runQuery("SELECT name, population FROM country ORDER BY population DESC;", 2, "11-Countries-ordered-by-population", false); // Report 1 (Issue #11)
 
-        Query.runQuery("SELECT name, population FROM city ORDER BY population DESC;", 2, "17-Cities-ordered-by-population", false);
+        Query.runQuery("SELECT name, population FROM city ORDER BY population DESC;", 2, "17-Cities-ordered-by-population", false); // Report 7 (Issue #17)
 
         Query.runQuery("SELECT SUM(population) as totalPopulation FROM country;", 1, "36-As a user, I want to view the population of the world.", false);
 
