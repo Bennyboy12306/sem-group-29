@@ -69,7 +69,7 @@ public class Query {
      * @throws SQLException if the result formatting has failed.
      */
     public static String formatResult(ResultSet result, int columns) throws SQLException {
-        StringBuilder formatted_result = new StringBuilder(" | ");
+        StringBuilder formattedResult = new StringBuilder(" | ");
         try {
             for (int i = 1; i <= columns; i++) {
 
@@ -83,10 +83,10 @@ public class Query {
                     return null;
                 }
 
-                formatted_result.append(value);
-                formatted_result.append(" | ");
+                formattedResult.append(value);
+                formattedResult.append(" | ");
             }
-            return formatted_result.toString();
+            return formattedResult.toString();
         } catch (SQLException e) {
             throw new SQLException("Formatting Query Result Failed");
         }
