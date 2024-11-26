@@ -29,6 +29,7 @@ jobs:
 
   build:
     name: Population Reporting Action
+    needs: test
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -41,7 +42,13 @@ jobs:
           distribution: 'adopt'
 
       - name: Compile and package with Maven
-        run: mvn clean package -Dmaven.test.skip=true
-
-      - name: Run docker compose app
-        run: docker compose up -d
+        run: | 
+          mvn clean package -Dmaven.test.skip=true
+          docker compose up --abort-on-container-exit
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          automatic_release_tag: "latest"
+          files: |
+            ./target/*.jar
