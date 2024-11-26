@@ -24,7 +24,7 @@ class IntegrationTests
     @Test
     void databaseTest()
     {
-        assertNotNull(Database.getConnection());
+        assertNotNull(Database.getConnection(), "Could not connect to the database");
     }
 
     /**
@@ -33,6 +33,6 @@ class IntegrationTests
     @Test
     void queryTest()
     {
-        assertNotNull(Query.runQuery("Show TABLES;", 1, "Test Query", true));
+        assertNotNull(Query.runQuery("Show TABLES;", 1, "Test Query", true), "Could not perform query on the database");
     }
 }

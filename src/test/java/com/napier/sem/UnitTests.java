@@ -26,7 +26,7 @@ class UnitTests
     @Test
     void printTest()
     {
-        assertTrue(Query.printQueryDetails("Test", "SHOW TABLES"));
+        assertTrue(Query.printQueryDetails("Test", "SHOW TABLES"), "Print failed");
     }
 
     /**
@@ -35,7 +35,7 @@ class UnitTests
     @Test
     void printEmptyTest()
     {
-        assertFalse(Query.printQueryDetails("", ""));
+        assertFalse(Query.printQueryDetails("", ""), "Printing empty query returned unexpected result");
     }
 
     /**
@@ -44,7 +44,7 @@ class UnitTests
     @Test
     void printNullTest()
     {
-        assertFalse(Query.printQueryDetails(null, null));
+        assertFalse(Query.printQueryDetails(null, null), "Passing in null to Print should return null");
     }
 
     /**
