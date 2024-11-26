@@ -20,9 +20,6 @@ class UnitTests
         mockResultSet = mock(ResultSet.class);
     }
 
-    @Test
-    void temp(){assertTrue(false);}
-
     /**
      * This test ensures that the print method is working correctly
      */
