@@ -1,11 +1,11 @@
 License
-[![LICENSE](https://img.shields.io/github/license/Bennyboy12306/sem-group-29.svg?style=flat-square)](https://github.com/Bennyboy12306/sem-group-29/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Master
-[![Master](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/main.yml)
+[![Master](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/main.yml?branch=master)
 
 Develop
-[![Develop](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/main.yml)
+[![Develop](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/main.yml?branch=develop)
 # Software Engineering Methods Group Project | Population Reporting System
 - SET08103 
 
