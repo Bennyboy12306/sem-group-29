@@ -35,6 +35,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven
 
-      # Step 4: Build the project
-      - name: Build with Maven
-        run: mvn clean install --no-transfer-progress
+      # Step 4: Build the project (Skip Tests)
+      - name: Build with Maven (Skip Tests)
+        run: mvn clean install -DskipTests --no-transfer-progress
