@@ -1,4 +1,4 @@
-[![CI Build and Test Workflow](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/ci.yml/badge.svg)](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/ci.yml)
+[![Workflow](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/main.yml/badge.svg)](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/main.yml)
 # Software Engineering Methods Group Project | Population Reporting System
 - SET08103 
 
