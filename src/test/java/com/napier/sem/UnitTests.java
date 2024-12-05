@@ -8,42 +8,17 @@ import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class AppTest
+class UnitTests
 {
     private static ResultSet mockResultSet;
-  
-    // Integration and unit Tests
+
+    // Unit Tests
+    // Note tests require Mockito
 
     @BeforeAll
-    static void init()
-    {
-        Database.connect(true);
+    static void init() {
         mockResultSet = mock(ResultSet.class);
     }
-
-    //Integration Tests
-    // Note due to the nature of how our database works, integration test will only succeed if run from git actions
-
-    /**
-     * This test checks if the database has been connected successfully
-     */
-    @Test
-    void databaseTest()
-    {
-        assertNotNull(Database.getConnection());
-    }
-
-    /**
-     * This test checks that queries are being handled properly
-     */
-    @Test
-    void queryTest()
-    {
-        assertNotNull(Query.runQuery("Show TABLES;", 1, "Test Query", true));
-    }
-
-    //Unit Tests
-    // Note some tests require Mockito
 
     /**
      * This test ensures that the print method is working correctly
@@ -51,7 +26,7 @@ class AppTest
     @Test
     void printTest()
     {
-        assertTrue(Query.printQueryDetails("Test", "SHOW TABLES"));
+        assertTrue(Query.printQueryDetails("Test", "SHOW TABLES"), "Print failed");
     }
 
     /**
@@ -60,7 +35,7 @@ class AppTest
     @Test
     void printEmptyTest()
     {
-        assertFalse(Query.printQueryDetails("", ""));
+        assertFalse(Query.printQueryDetails("", ""), "Printing empty query returned unexpected result");
     }
 
     /**
@@ -69,7 +44,7 @@ class AppTest
     @Test
     void printNullTest()
     {
-        assertFalse(Query.printQueryDetails(null, null));
+        assertFalse(Query.printQueryDetails(null, null), "Passing in null to Print should return null");
     }
 
     /**
