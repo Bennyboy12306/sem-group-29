@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/a3b49f35-ab9c-4327-b980-c34763826ef9)License
+License
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Master
