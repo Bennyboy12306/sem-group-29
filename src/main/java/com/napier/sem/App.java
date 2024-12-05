@@ -32,6 +32,13 @@ public class App {
     private static final String ISSUE_24_N_CITIES = "5";
     private static final String ISSUE_23_N_CITIES = "5";
     private static final String ISSUE_23_CONTINENT = "Europe";
+    private static final String ISSUE_32_N_CITIES = "5";
+    private static final String ISSUE_29_NAME_OF_REGION = "Eastern Europe";
+    private static final String ISSUE_28_NAME_OF_CONTINENT = "Asia";
+    private static final String ISSUE_30_N_CITIES = "5";
+    private static final String ISSUE_31_N_CITIES = "5";
+    private static final String ISSUE_31_NAME_OF_CONTINENT = "Africa";
+
 
     public static void main(String[] args) {
         Database.connect(false);
@@ -41,9 +48,9 @@ public class App {
         // and expand the app section of the docker compose in the services tab to see the output.
         // It may take a few attempts to connect.
 
-        Query.runQuery("SELECT name, population FROM country ORDER BY population DESC;", 2, "11-Countries-ordered-by-population", false);
+        Query.runQuery("SELECT name, population FROM country ORDER BY population DESC;", 2, "11-Countries-ordered-by-population", false); // Report 1 (Issue #11)
 
-        Query.runQuery("SELECT name, population FROM city ORDER BY population DESC;", 2, "17-Cities-ordered-by-population", false);
+        Query.runQuery("SELECT name, population FROM city ORDER BY population DESC;", 2, "17-Cities-ordered-by-population", false); // Report 7 (Issue #17)
 
         Query.runQuery("SELECT SUM(population) as totalPopulation FROM country;", 1, "36-As a user, I want to view the population of the world.", false);
 
@@ -88,6 +95,23 @@ public class App {
         Query.runQuery("SELECT continent, SUM(country.population) AS totalPop, SUM(city.population) AS inCities, SUM(country.population) - SUM(city.population) AS notInCities FROM country JOIN city ON Code=CountryCode GROUP BY continent;", 4, "33-As a user, I want to view the population of people, people living in cities, and people not living in cities in each continent.", false);
 
         Query.runQuery("SELECT country.name, SUM(country.population) AS totalPop, SUM(city.population) AS inCities, SUM(country.population) - SUM(city.population) AS notInCities FROM country JOIN city ON Code=CountryCode GROUP BY country.name, country.population LIMIT 10;", 4, "35-As a user, I want to view the population of people, people living in cities, and people not living in cities in each country.", false);
+
+        Query.runQuery("SELECT country.region, SUM(country.population) AS totalPop, SUM(city.population) AS inCities, SUM(country.population) - SUM(city.population) AS notInCities FROM country JOIN city ON Code=CountryCode GROUP BY country.region LIMIT 10;", 4, "34-As a user, I want to view the population of people, people living in cities, and people not living in cities in each region.", false);
+
+        Query.runQuery("SELECT country.name AS countryName, city.name AS cityName, city.population FROM country JOIN city ON Code=CountryCode WHERE city.ID = country.Capital ORDER BY city.population DESC;", 3, "27-As a user, I want to view all capital cities in the world organized by largest population to smallest.", false);
+
+        Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE city.ID = country.Capital ORDER BY population DESC LIMIT " + ISSUE_32_N_CITIES + ";", 2, "32-As a user, I want to view the top N populated capital cities in a region where N is provided by me.", false);
+
+        Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE city.ID = country.Capital AND region='" + ISSUE_29_NAME_OF_REGION + "'ORDER BY population DESC;", 2, "29-As a user, I want to view all capital cities in a region organized by largest to smallest.", false);
+
+        Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE city.ID = country.Capital AND continent='" + ISSUE_28_NAME_OF_CONTINENT + "'ORDER BY population DESC;", 2, "28-As a user, I want to view all capital cities in a continent organized by largest population to smallest.", false);
+
+        Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE city.ID = country.Capital ORDER BY population DESC LIMIT " + ISSUE_30_N_CITIES + ";", 2, "30-As a user, I want to view the top N populated capital cities in the world where N is provided by me.", false);
+
+        Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE city.ID = country.Capital AND continent='" + ISSUE_31_NAME_OF_CONTINENT + "' ORDER BY population DESC LIMIT " + ISSUE_31_N_CITIES + ";", 2, "31-As a user, I want to view the top N populated capital cities in a continent where N is provided by me. ", false);
+
+
+
     }
 
 }
