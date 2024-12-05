@@ -32,6 +32,7 @@ public class App {
     private static final String ISSUE_24_N_CITIES = "5";
     private static final String ISSUE_23_N_CITIES = "5";
     private static final String ISSUE_23_CONTINENT = "Europe";
+    private static final String ISSUE_32_N_CITIES = "5";
 
     public static void main(String[] args) {
         Database.connect(false);
@@ -92,6 +93,10 @@ public class App {
         Query.runQuery("SELECT country.name, country.region, SUM(country.population) AS totalPop, SUM(city.population) AS inCities, SUM(country.population) - SUM(city.population) AS notInCities FROM country JOIN city ON Code=CountryCode GROUP BY country.name, country.region LIMIT 10;", 4, "34-As a user, I want to view the population of people, people living in cities, and people not living in cities in each region.", false);
 
         Query.runQuery("SELECT country.name AS countryName, city.name AS cityName, city.population FROM country JOIN city ON Code=CountryCode WHERE city.ID = country.Capital ORDER BY city.population DESC;", 3, "27-As a user, I want to view all capital cities in the world organized by largest population to smallest.", false);
+
+        Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE city.ID = country.Capital ORDER BY population DESC LIMIT " + ISSUE_32_N_CITIES + ";", 2, "32-As a user, I want to view the top N populated capital cities in a region where N is provided by me.", false);
+
+
 
 
 
