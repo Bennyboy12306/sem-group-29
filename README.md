@@ -9,6 +9,9 @@ Master
 
 Develop
 [![Develop](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/Bennyboy12306/sem-group-29/actions/workflows/main.yml?branch=develop)
+
+Code Coverage
+
 # Software Engineering Methods Group Project | Population Reporting System
 - SET08103 
 
