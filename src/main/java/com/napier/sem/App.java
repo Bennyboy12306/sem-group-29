@@ -34,6 +34,7 @@ public class App {
     private static final String ISSUE_23_CONTINENT = "Europe";
     private static final String ISSUE_32_N_CITIES = "5";
     private static final String ISSUE_29_NAME_OF_REGION = "Eastern Europe";
+    private static final String ISSUE_28_NAME_OF_CONTINENT = "Asia";
 
 
     public static void main(String[] args) {
@@ -100,6 +101,7 @@ public class App {
 
         Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE city.ID = country.Capital AND region='" + ISSUE_29_NAME_OF_REGION + "'ORDER BY population DESC;", 2, "29-As a user, I want to view all capital cities in a region organized by largest to smallest.", false);
 
+        Query.runQuery("SELECT city.name, city.population FROM country JOIN city ON Code=CountryCode WHERE city.ID = country.Capital AND continent='" + ISSUE_28_NAME_OF_CONTINENT + "'ORDER BY population DESC;", 2, "28-As a user, I want to view all capital cities in a continent organized by largest population to smallest.", false);
 
 
 
