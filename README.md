@@ -51,5 +51,5 @@ Develop
 | 28 | As a user, I want to view the population of a region. | Yes | ![28](https://github.com/Bennyboy12306/sem-group-29/blob/feature/screenshots/Screenshots/38%20-%20Population%20of%20a%20region.png?raw=true) |
 | 29 | As a user, I want to view the population of a country. | Yes | ![29](https://github.com/Bennyboy12306/sem-group-29/blob/feature/screenshots/Screenshots/39-Population%20of%20a%20country.png?raw=true) |
 | 30 | As a user, I want to view the population of a district. | Yes | ![30](https://github.com/Bennyboy12306/sem-group-29/blob/feature/screenshots/Screenshots/40-Population%20of%20a%20district.png?raw=true) |
-| 31 | As a user, I want to view the population of a city. | Yes | |
+| 31 | As a user, I want to view the population of a city. | Yes | ![31](https://github.com/Bennyboy12306/sem-group-29/blob/feature/screenshots/Screenshots/41-Population%20of%20city.png?raw=true) |
 | 32 | As a user, I want to view the number of people who speak Chinese, English, Hindi, Spanish, and Arabic, from greatest number to smallest, including the percentage of the world population. | Yes | |
